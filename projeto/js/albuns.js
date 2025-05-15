@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Sidebar
+
   const menuBtn = document.getElementById("menuBtn");
   const closeSidebar = document.getElementById("closeSidebar");
   const sidebar = document.getElementById("sidebar");
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Dropdown lateral "Explorar"
   const explorarBtn = document.getElementById("explorarBtn");
   const explorarMenu = document.getElementById("explorarMenu");
 
@@ -50,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Ano de lançamento
   const anoRange = document.getElementById("anoRange");
   const anoValor = document.getElementById("anoValor");
 
@@ -60,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Estrelas
   const stars = document.querySelectorAll("#ratingFilter .star");
   const ratingLabel = document.getElementById("ratingLabel");
 
@@ -84,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Dropdown de gêneros
   const generosBtn = document.getElementById("generosBtn");
   const generosList = document.getElementById("generosList");
 
@@ -104,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Carregar álbuns populares (simulação)
   const carregarPopularesBtn = document.getElementById("carregarPopularesBtn");
   const resultadoTitulo = document.getElementById("resultadoTitulo");
   const resultadoDescricao = document.getElementById("resultadoDescricao");
@@ -150,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     carregarPopularesBtn.textContent = "Carregado";
   }
 
-  // Aplicar filtros
   const aplicarFiltrosBtn = document.getElementById("aplicarFiltrosBtn");
   if (aplicarFiltrosBtn) {
     aplicarFiltrosBtn.addEventListener("click", () => {
@@ -158,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Limpar filtros
   const limparFiltrosBtn = document.getElementById("limparFiltrosBtn");
   if (limparFiltrosBtn) {
     limparFiltrosBtn.addEventListener("click", () => {

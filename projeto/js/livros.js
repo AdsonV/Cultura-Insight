@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('overlay');
     const explorarBtn = document.getElementById('explorarBtn');
     const explorarMenu = document.getElementById('explorarMenu');
-
+    
     menuBtn.addEventListener('click', () => {
         sidebar.classList.add('active');
         overlay.classList.add('active');

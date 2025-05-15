@@ -13,13 +13,18 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-purple fixed-top px-3">
-        <span class="navbar-brand d-flex align-items-center">
-            <i class="fas fa-lightbulb me-2"></i> Cultura Insight
-        </span>
-        <button class="btn btn-purple ms-auto" id="menuBtn" aria-label="Abrir menu lateral" aria-expanded="false">
-            <i class="fas fa-bars fa-lg"></i>
-        </button>
-    </nav>
+            <span class="navbar-brand d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="http://127.0.0.1:5500/projeto/html/index.html">
+                <i class="bi bi-lightbulb-fill me-2"></i> Cultura Insight
+            </a>
+            <button class="navbar-toggler" type="button">
+                <i class="bi bi-list text-white fs-4"></i>
+            </button>
+            </span>
+            <button class="btn btn-purple ms-auto" id="menuBtn" aria-label="Abrir menu lateral" aria-expanded="false">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </nav>
 
     <aside id="sidebar" aria-hidden="true">
         <div class="sidebar-header d-flex justify-content-between align-items-center px-3 py-2 bg-purple text-white">
@@ -31,17 +36,18 @@
             </button>
         </div>
         <nav class="nav flex-column mt-3 px-3">
-            <a href="#" class="nav-link">Início</a>
+            <a href="http://127.0.0.1:5500/projeto/html/index.html" class="nav-link">Início</a>
             <div class="nav-item dropdown">
                 <button class="dropdown-toggle nav-link btn btn-link" id="explorarBtn" aria-expanded="false"
                     aria-controls="explorarMenu" aria-haspopup="true" type="button">
                     Explorar <i class="fas fa-chevron-down"></i>
                 </button>
                 <ul id="explorarMenu" class="dropdown-menu flex-column ps-0" aria-labelledby="explorarBtn">
-                    <li><a href="#" class="dropdown-item">Filmes</a></li>
-                    <li><a href="#" class="dropdown-item">Livros</a></li>
-                    <li><a href="#" class="dropdown-item">Álbuns</a></li>
-                    <li><a href="#" class="dropdown-item">Mais Avaliados</a></li>
+                    <li><a href="http://127.0.0.1:5500/projeto/html/filmes.html" class="dropdown-item">Filmes</a></li>
+                    <li><a href="http://127.0.0.1:5500/projeto/html/livros.html" class="dropdown-item">Livros</a></li>
+                    <li><a href="http://127.0.0.1:5500/projeto/html/albuns.html" class="dropdown-item">Álbuns</a></li>
+                    <li><a href="http://127.0.0.1:5500/projeto/html/avaliacoes.html" class="dropdown-item">Mais
+                            Avaliados</a></li>
                 </ul>
             </div>
             <a href="#" class="nav-link">Dashboard</a>
@@ -97,7 +103,7 @@
 
         <div class="mb-3">
             <label for="anoRange" class="form-label">Ano de Publicação: <span id="anoValor">2025</span></label>
-            <input type="range" class="form-range" min="1900" max="2025" id="anoRange" value="2025" />
+            <input type="range" class="form-range" max="2025" id="anoRange" value="2025" />
         </div>
 
         <div class="mb-3">
@@ -147,19 +153,21 @@
                 <div class="col-md-6">
                     <h6>Explorar</h6>
                     <ul class="list-unstyled">
-                        <li>Filmes</li>
-                        <li>Livros</li>
-                        <li>Álbuns</li>
-                        <li>Mais Avaliados</li>
+                        <li><a href="http://127.0.0.1:5500/projeto/html/filmes.html"
+                                class="text-white text-decoration-none">Filmes</a></li>
+                        <li><a href="http://127.0.0.1:5500/projeto/html/livros.html"
+                                class="text-white text-decoration-none">Livros</a></li>
+                        <li><a href="http://127.0.0.1:5500/projeto/html/albuns.html"
+                                class="text-white text-decoration-none">Álbuns</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6">
                     <h6>Conta</h6>
                     <ul class="list-unstyled">
-                        <li>Entrar</li>
-                        <li>Cadastrar</li>
-                        <li>Meu Perfil</li>
-                        <li>Minhas Avaliações</li>
+                        <li><a href="http://127.0.0.1:5500/projeto/html/login.html"
+                                class="text-white text-decoration-none">Login</a></li>
+                        <li><a href="http://127.0.0.1:5500/projeto/html/cadastro.html"
+                                class="text-white text-decoration-none">Cadastrar</a></li>
                     </ul>
                 </div>
             </div>

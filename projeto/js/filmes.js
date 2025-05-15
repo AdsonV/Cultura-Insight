@@ -165,8 +165,6 @@ function updateStars(rating) {
     ratingLabel.textContent = rating.toFixed(1) + "+";
 }
 
-// Para acessar o valor ao aplicar filtros:
 document.getElementById("aplicarFiltrosBtn").addEventListener("click", () => {
-    console.log("Avaliação mínima selecionada:", selectedRating);
-    // Aqui você pode usar `selectedRating` na sua lógica de filtro
+    console.log("Avaliação mínima selecionada:", selectedRating);   
 });
