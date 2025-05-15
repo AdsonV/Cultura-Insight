@@ -1,0 +1,88 @@
+/* ===== Estilos Gerais ===== */
+body {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #6c4696;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ===== Formulário de Login ===== */
+.card {
+  max-width: 500px;
+  width: 100%;
+  border: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #6c4696;
+}
+
+.btn-login {
+  background-color: #6c4696;
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: #5a3c80;
+}
+
+/* Botão de mostrar senha */
+#togglePassword {
+  border-color: #ced4da;
+}
+
+#togglePassword:focus {
+  box-shadow: none;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+footer h5,
+footer h6 {
+  color: white;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+.footer-icon {
+  font-size: 1.3rem;
+  margin-right: 15px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.footer-icon:hover {
+  color: #8e9aaf;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.95rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
