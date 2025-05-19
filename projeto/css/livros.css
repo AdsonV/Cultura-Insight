@@ -150,7 +150,6 @@ body {
   z-index: 1040;
 }
 
-/* Hero */
 .hero-section {
   background: linear-gradient(135deg, #111 0%, #333 100%);
   padding-top: 4rem;
@@ -188,7 +187,6 @@ body {
   color: var(--red) !important;
 }
 
-/* Dropdown com checkbox */
 .dropdown-checkbox {
   position: relative;
   width: 100%;
