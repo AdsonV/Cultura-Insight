@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -96,7 +97,6 @@
       </div>
     </div>
 
-
     <div class="mb-3">
       <label for="generos-dropdown" class="form-label">Gêneros</label>
       <div class="dropdown-checkbox" id="generos-dropdown">
@@ -129,9 +129,13 @@
       <button class="btn btn-danger w-100 mb-2" id="aplicarFiltrosBtn">Aplicar Filtros</button>
       <button class="btn btn-outline-secondary w-100" id="limparFiltrosBtn">Limpar Filtros</button>
     </div>
+
+    <div id="filtrosAplicados" class="mb-3"></div>
+
+    <div id="avaliacoesContainer" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
   </section>
 
-  <section class="text-center py-5">
+  <section class="text-center py-5" id="resultadoSection">
     <p class="mb-2"><strong>Resultados:</strong></p>
     <div>
       <i class="fas fa-star fa-3x text-muted"></i>

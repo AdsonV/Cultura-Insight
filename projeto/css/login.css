@@ -1,4 +1,3 @@
-/* ===== Estilos Gerais ===== */
 body {
   background-color: #f8f9fa;
 }
@@ -21,7 +20,6 @@ body {
   box-shadow: none;
 }
 
-/* ===== Formulário de Login ===== */
 .card {
   max-width: 500px;
   width: 100%;
@@ -42,7 +40,6 @@ body {
   background-color: #5a3c80;
 }
 
-/* Botão de mostrar senha */
 #togglePassword {
   border-color: #ced4da;
 }
@@ -51,7 +48,6 @@ body {
   box-shadow: none;
 }
 
-/* ===== Footer ===== */
 footer {
   background-color: #1a1a2e;
   color: white;
