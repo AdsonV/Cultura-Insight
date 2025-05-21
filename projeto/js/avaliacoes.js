@@ -47,13 +47,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const expanded = explorarBtn.getAttribute('aria-expanded') === 'true';
     explorarBtn.setAttribute('aria-expanded', !expanded);
     explorarMenu?.classList.toggle('show');
-  });
 
-  document.addEventListener('click', (e) => {
     if (!explorarBtn.contains(e.target) && !explorarMenu.contains(e.target)) {
       explorarMenu?.classList.remove('show');
       explorarBtn?.setAttribute('aria-expanded', 'false');
     }
+  });
+
+  document.addEventListener('click', (e) => {
+
+    function setRating(min) {
+      ratingMin = min;
+      ratingLabel.textContent = `${min.toFixed(1)}+`;
+      ratingStars.forEach((star) => {
+        const starValue = parseInt(star.dataset.value, 10);
+        const isActive = starValue <= min;
+        star.classList.toggle('active', isActive);
+        star.setAttribute('aria-checked', isActive);
+        star.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+    }
+
+    ratingStars.forEach((star) => {
+      const value = parseInt(star.dataset.value);
+      star.addEventListener('click', () => setRating(value));
+      star.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setRating(value);
+        }
+      });
+    });
+
+    anoRange?.addEventListener('input', () => {
+      anoValor.textContent = anoRange.value;
+    });
 
     if (!generosDropdown.contains(e.target) && generosList.classList.contains('show')) {
       generosList.classList.remove('show');
@@ -81,33 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
       generosList.appendChild(li);
     });
   }
-
-  anoRange?.addEventListener('input', () => {
-    anoValor.textContent = anoRange.value;
-  });
-
-  function setRating(min) {
-    ratingMin = min;
-    ratingLabel.textContent = `${min.toFixed(1)}+`;
-    ratingStars.forEach((star) => {
-      const starValue = parseInt(star.dataset.value, 10);
-      const isActive = starValue <= min;
-      star.classList.toggle('active', isActive);
-      star.setAttribute('aria-checked', isActive);
-      star.setAttribute('tabindex', isActive ? '0' : '-1');
-    });
-  }
-
-  ratingStars.forEach((star) => {
-    const value = parseInt(star.dataset.value);
-    star.addEventListener('click', () => setRating(value));
-    star.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        setRating(value);
-      }
-    });
-  });
 
   function getCheckedGeneros() {
     return Array.from(document.querySelectorAll('input[name="generos"]:checked')).map(cb => cb.value);
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (anoRange) {
       anoRange.value = anoRange.max;
       anoValor.textContent = anoRange.value;
-    }
+    } 
 
     setRating(0);
     atualizarGeneros(selectedMediaType);
