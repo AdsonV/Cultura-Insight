@@ -1,0 +1,173 @@
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="headFragment">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cultura Insight - Livros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/livros.css" />
+</head>
+
+<body>
+
+<nav th:fragment="navbarFragment" class="navbar navbar-expand-lg navbar-dark bg-purple fixed-top px-3">
+    <span class="navbar-brand d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center" href="index">
+            <i class="bi bi-lightbulb-fill me-2"></i> Cultura Insight
+        </a>
+        <button class="navbar-toggler" type="button">
+            <i class="bi bi-list text-white fs-4"></i>
+        </button>
+    </span>
+    <button class="btn btn-purple ms-auto" id="menuBtn" aria-label="Abrir menu lateral" aria-expanded="false">
+        <i class="fas fa-bars fa-lg"></i>
+    </button>
+</nav>
+
+<aside id="sidebar" aria-hidden="true" th:fragment="sidebarFragment">
+    <div class="sidebar-header d-flex justify-content-between align-items-center px-3 py-2 bg-purple text-white">
+        <h5 class="mb-0 d-flex align-items-center">
+            <i class="fas fa-lightbulb me-2"></i> Cultura Insight
+        </h5>
+        <button id="closeSidebar" aria-label="Fechar menu" class="btn btn-purple">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <nav class="nav flex-column mt-3 px-3">
+        <a href="index" class="nav-link">Início</a>
+        <div class="nav-item dropdown">
+            <button class="dropdown-toggle nav-link btn btn-link" id="explorarBtn" aria-expanded="false"
+                    aria-controls="explorarMenu" aria-haspopup="true" type="button">
+                Explorar <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul id="explorarMenu" class="dropdown-menu flex-column ps-0" aria-labelledby="explorarBtn">
+                <li><a href="filmes" class="dropdown-item">Filmes</a></li>
+                <li><a href="livros" class="dropdown-item">Livros</a></li>
+                <li><a href="albuns" class="dropdown-item">Álbuns</a></li>
+                <li><a href="avaliacoes" class="dropdown-item">Mais Avaliados</a></li>
+            </ul>
+        </div>
+        <a href="dashboard" class="nav-link">Dashboard</a>
+        <a href="sobre" class="nav-link">Sobre</a>
+        <div class="mt-3 px-2">
+            <button class="btn btn-outline-light me-2">Login</button>
+            <button class="btn btn-success">Cadastrar</button>
+        </div>
+    </nav>
+</aside>
+
+<div id="overlay"></div>
+
+<header class="hero-section text-white text-center py-5">
+    <h1>Descubra Livros Incríveis</h1>
+    <p class="lead">
+        Explore nossa coleção de livros, encontre novas leituras e compartilhe suas avaliações com a comunidade.
+    </p>
+    <div class="search-box d-flex justify-content-center mt-4">
+        <input type="text" class="form-control w-50 rounded-start-pill"
+               placeholder="Busque por título, autor ou gênero..." aria-label="Busca de livros" />
+        <button class="btn btn-danger rounded-end-pill">Buscar</button>
+    </div>
+</header>
+
+<section class="container py-4">
+    <h5 class="text-danger d-flex align-items-center">
+        <i class="fas fa-filter me-2"></i> Filtros
+    </h5>
+
+    <div class="mb-3">
+        <label class="form-label" for="generos-dropdown">Gêneros</label>
+        <div class="dropdown-checkbox" id="generos-dropdown">
+            <button type="button" class="dropdown-btn" aria-expanded="false" aria-haspopup="true" id="generosBtn">
+                Selecione os gêneros <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-list" aria-labelledby="generosBtn" tabindex="-1" id="generosList">
+                <li><label><input type="checkbox" value="Ficção" /> Ficção</label></li>
+                <li><label><input type="checkbox" value="Romance" /> Romance</label></li>
+                <li><label><input type="checkbox" value="Suspense" /> Suspense</label></li>
+                <li><label><input type="checkbox" value="Fantasia" /> Fantasia</label></li>
+                <li><label><input type="checkbox" value="Mistério" /> Mistério</label></li>
+                <li><label><input type="checkbox" value="Biografia" /> Biografia</label></li>
+                <li><label><input type="checkbox" value="História" /> História</label></li>
+                <li><label><input type="checkbox" value="Autoajuda" /> Autoajuda</label></li>
+                <li><label><input type="checkbox" value="Clássicos" /> Clássicos</label></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="anoRange" class="form-label">Ano de Publicação: <span id="anoValor">2025</span></label>
+        <input type="range" class="form-range" max="2025" id="anoRange" value="2025" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Avaliação Mínima</label>
+        <div id="ratingFilter" class="rating">
+            <i class="star bi bi-star-fill" data-value="1"></i>
+            <i class="star bi bi-star-fill" data-value="2"></i>
+            <i class="star bi bi-star-fill" data-value="3"></i>
+            <i class="star bi bi-star-fill" data-value="4"></i>
+            <i class="star bi bi-star-fill" data-value="5"></i>
+            <span id="ratingLabel" class="ms-2">0.0+</span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-danger w-100 mb-2" id="aplicarFiltrosBtn">Aplicar Filtros</button>
+        <button class="btn btn-outline-secondary w-100" id="limparFiltrosBtn">Limpar Filtros</button>
+    </div>
+</section>
+
+<section class="text-center py-5">
+    <p class="mb-2"><strong>Filtros Aplicados:</strong></p>
+    <div>
+        <i class="fas fa-book fa-3x text-muted"></i>
+        <h4 class="mt-3" id="resultadoTitulo">Nenhum livro encontrado</h4>
+        <p id="resultadoDescricao">Use os filtros para encontrar livros ou faça uma busca acima.</p>
+        <button class="btn btn-danger" id="carregarPopularesBtn">Carregar Livros Populares</button>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-section text-white py-5 mt-5 bg-dark" th:fragment="footerFragment">
+    <div class="container">
+        <h5>Cultura Insight</h5>
+        <p>
+            Sua plataforma para descobrir, avaliar e compartilhar experiências culturais com filmes, livros e álbuns musicais.
+        </p>
+
+        <div class="mb-3">
+            <i class="fab fa-facebook me-2"></i>
+            <i class="fab fa-twitter me-2"></i>
+            <i class="fab fa-instagram me-2"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Explorar</h6>
+                <ul class="list-unstyled">
+                    <li><a href="filmes" class="text-white text-decoration-none">Filmes</a></li>
+                    <li><a href="livros" class="text-white text-decoration-none">Livros</a></li>
+                    <li><a href="albuns" class="text-white text-decoration-none">Álbuns</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6>Conta</h6>
+                <ul class="list-unstyled">
+                    <li><a href="login" class="text-white text-decoration-none">Login</a></li>
+                    <li><a href="cadastro" class="text-white text-decoration-none">Cadastrar</a></li>
+                    <li><a href="perfil" class="text-white text-decoration-none">Meu perfil</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/livros.js"></script>
+
+</body>
+</html>
